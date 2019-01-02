@@ -1,6 +1,6 @@
 # 3factor app
 
-3factor app is an architecture pattern for modern full-stack apps. Today, it is possible to build apps that are fast to iterate on, while being resilient and highly scalable from the get go. [Jump](https://github.com/hasura/3factor-example) to reference implementation.
+3factor app is an architecture pattern for modern full-stack apps. Today, it is possible to build apps that have high feature velocity and scalable from the get go. [Jump](https://github.com/hasura/3factor-example) to reference implementation.
 
 [We](https://hasura.io) propose an architecture pattern which is composed of 3 factors:
 
@@ -15,7 +15,7 @@ Consider a traditional food ordering application which moves to a 3factor archit
 
 ## Factor #1: Realtime GraphQL
 
-Use GraphQL for a much faster frontend developer workflow. In addition to speaking GraphQL, your API layer should also support the following 2 properties:
+Use GraphQL for a very simple and flexible frontend developer workflow. GraphQL is a crucial component for delivering high feature velocity. Your GraphQL layer should also support the following 2 properties:
 
 - **Low-latency**: An end-user should see [instant
   feedback](https://stackoverflow.com/a/164290/3364697) of an action and not
@@ -38,9 +38,7 @@ Your event system should have the following 2 properties:
 
 ## Factor #3: Async serverless
 
-Write business logic as event handlers. As per the event system in Factor #2,
-write event handlers which receive an event and perform computations.
-Deploy these event handlers on serverless compute.
+Write business logic as HTTP event handlers. Deploy these event handlers on serverless compute.
 Serverless minimizes backend ops and gives free scalability while being cost-efficient.
 The serverless backends should follow few best-practices:
 
@@ -52,8 +50,8 @@ The serverless backends should follow few best-practices:
 ---------------------------------------------------------
 
 In short, a 3factor app requires you to remove state from your code and put it in your
-datastore and/or event queues. Cloud vendors make it easy to scale and replicate
-your datastore, event-queues and compute backend. Consuming asynchronous information by the frontend
+datastore and/or event queues as much as possible. Cloud vendors make it easy to scale and replicate
+your datastore, event-queues and compute backend. Consuming asynchronous information and performing sync actions in the frontend
 requires a high-performant realtime GraphQL API.
 
 An interesting sidenote: A 3factor app's architecture is analogous to the [redux](https://redux.js.org/) dataflow
