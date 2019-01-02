@@ -1,6 +1,6 @@
 # 3factor app
 
-3factor app is an architecture pattern for modern full-stack apps. Today, it is possible to build apps that allow for fast iteration, while being resilient and highly scalable from the get go. [Jump](https://github.com/hasura/3factor-example) to reference implementation.
+3factor app is an architecture pattern for modern full-stack apps. Today, it is possible to build apps that are fast to iterate on, while being resilient and highly scalable from the get go. [Jump](https://github.com/hasura/3factor-example) to reference implementation.
 
 [We](https://hasura.io) propose an architecture pattern which is composed of 3 factors:
 
@@ -38,7 +38,9 @@ Your event system should have the following 2 properties:
 
 ## Factor #3: Async serverless
 
-Write business logic in serverless compute that is asynchronously triggered via events.
+Write business logic as event handlers. As per the event system in Factor #2,
+write event handlers which receive an event and perform computations.
+Deploy these event handlers on serverless compute.
 Serverless minimizes backend ops and gives free scalability while being cost-efficient.
 The serverless backends should follow few best-practices:
 
